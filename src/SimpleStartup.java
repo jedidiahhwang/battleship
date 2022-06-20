@@ -23,10 +23,10 @@ public class SimpleStartup {
             result = "kill";
         }
         System.out.println(result);
-        return result);
+        return result;
     }
 
     public void setLocationCells(int[] locations) {
-
+        locationCells = locations;
     }
 }

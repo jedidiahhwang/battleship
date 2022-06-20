@@ -10,28 +10,28 @@ public class Main {
                 - You'll never test otherwise.
         */
 
+        int numOfGuesses = 0;
+
         // Create a new SimpleStartup object from the SimpleStartup class.
         SimpleStartup dot = new SimpleStartup();
 
         // Create an array for the battleship, and set the game's location to that array using
         // setter methods.
-        int[] locations = {2, 3, 4};
+        int startLocation = (int) (4 * Math.random());
+        int[] locations = {startLocation, startLocation + 1, startLocation + 2, startLocation + 3};
         dot.setLocationCells(locations);
 
-        // Make a "fake" user guess.
-        // Pass the guess into the checkYourself() method.
-        int userGuess = 2;
-        String result = dot.checkYourself(userGuess);
-
-        // By default (and more likely), you're going to miss.
-        // Set a default string to that value.
-        String testResult = "failed";
-
-        // Otherwise, if it's a hit, change the testResult string.
-        if(result.equals("hit")) {
-            testResult = "passed";
+        // Using IO, get user input and continue running the game.
+        boolean isAlive = true;
+        String result;
+        while(isAlive) {
+            numOfGuesses++;
+            // User IO
+            result = dot.checkYourself(userGuess);
+            if(result.equals("kill")) {
+                isAlive = false;
+                System.out.println(numOfGuesses);
+            }
         }
-
-        System.out.println(testResult);
     }
 }
