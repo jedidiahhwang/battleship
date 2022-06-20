@@ -26,7 +26,10 @@ public class Main {
         String result;
         while(isAlive) {
             numOfGuesses++;
+
             // User IO
+            GameHelper helper = new GameHelper();
+            int userGuess = helper.getUserInput("Input a guess");
             result = dot.checkYourself(userGuess);
             if(result.equals("kill")) {
                 isAlive = false;
