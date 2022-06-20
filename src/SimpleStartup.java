@@ -1,32 +1,32 @@
+import java.util.ArrayList;
+
 public class SimpleStartup {
-    private int[] locationCells;
+    private ArrayList<String> locationCells;
     private int numOfHits = 0;
 
-    public String checkYourself(int guess) {
+    public String checkYourself(String guess) {
         // Instantiate appropriate string.
         String result = "miss";
 
         // GET the user's guess.
-        int userGuess = guess;
+        String userGuess = guess;
 
-        // REPEAT with each cell in the int array.
-        for(int cell: locationCells) {
-            if(cell == guess) {
+        // Using ArrayList API, remove a cell if it's been hit to avoid the bug.
+        int index = locationCells.indexOf(userGuess);
+
+        if(index >= 0) {
+            locationCells.remove(index);
+
+            if(locationCells.isEmpty()) {
+                result = "kill";
+            } else {
                 result = "hit";
-                numOfHits++;
-                break;
             }
         }
-
-        // CHECK to see if the numOfHits equals cells length for a win.
-        if(numOfHits == locationCells.length) {
-            result = "kill";
-        }
-        System.out.println(result);
         return result;
     }
 
-    public void setLocationCells(int[] locations) {
+    public void setLocationCells(ArrayList<String> locations) {
         locationCells = locations;
     }
 }
