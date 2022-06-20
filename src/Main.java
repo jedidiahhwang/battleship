@@ -17,8 +17,8 @@ public class Main {
 
         // Create an array for the battleship, and set the game's location to that array using
         // setter methods.
-        int startLocation = (int) (4 * Math.random());
-        int[] locations = {startLocation, startLocation + 1, startLocation + 2, startLocation + 3};
+        int startLocation = (int) (5 * Math.random());
+        int[] locations = {startLocation, startLocation + 1, startLocation + 2};
         dot.setLocationCells(locations);
 
         // Using IO, get user input and continue running the game.
@@ -33,7 +33,7 @@ public class Main {
             result = dot.checkYourself(userGuess);
             if(result.equals("kill")) {
                 isAlive = false;
-                System.out.println(numOfGuesses);
+                System.out.println("You took " + numOfGuesses + " guesses");
             }
         }
     }
