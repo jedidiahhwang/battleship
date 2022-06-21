@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 
-public class SimpleStartup {
+public class Startup {
     private ArrayList<String> locationCells;
+    private String name;
     private int numOfHits = 0;
 
     public String checkYourself(String guess) {
@@ -28,5 +29,9 @@ public class SimpleStartup {
 
     public void setLocationCells(ArrayList<String> locations) {
         locationCells = locations;
+    }
+
+    public void setName(String n) {
+        name = n;
     }
 }
